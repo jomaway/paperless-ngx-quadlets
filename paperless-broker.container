@@ -6,7 +6,6 @@ Description=Paperless-ngx redis broker
 AutoUpdate=registry
 Image=docker.io/library/redis:8
 Pod=paperless.pod
-Pull=always
 
 # Storage options
 Volume=redisdata:/data
@@ -16,4 +15,3 @@ Restart=always
 
 [Install]
 WantedBy=default.target
-

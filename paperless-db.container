@@ -3,10 +3,8 @@ Description=Paperless-ngx postgres database container
 
 [Container]
 # Base options
-AutoUpdate=registry
 Image=docker.io/library/postgres:18
 Pod=paperless.pod
-Pull=always
 
 # Storage options
 Volume=pgdata:/var/lib/postgressql
@@ -22,4 +20,3 @@ Restart=always
 
 [Install]
 WantedBy=default.target
-

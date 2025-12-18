@@ -9,7 +9,6 @@ AutoUpdate=registry
 ContainerName=paperless-app
 Image=ghcr.io/paperless-ngx/paperless-ngx:latest
 Pod=paperless.pod
-Pull=always
 
 # Storage options
 Volume=/var/lib/paperless/consume:/usr/src/paperless/consume:Z
@@ -29,4 +28,3 @@ Restart=always
 
 [Install]
 WantedBy=default.target
-
