@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Paperless-ngx Document Export
+# Ensures the command only runs if the container is active
+After=paperless-app.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/podman exec paperless-app document_exporter ../export -f -p -na -nt
+
+[Install]
+WantedBy=default.target

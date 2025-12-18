@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Paperless-ngx Export Weekly
+
+[Timer]
+# Runs every Monday at 3:00 AM
+OnCalendar=Mon *-*-* 03:00:00
+# If the machine was off at 3 AM, run it immediately upon startup
+Persistent=true
+
+[Install]
+WantedBy=timers.target
