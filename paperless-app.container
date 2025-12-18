@@ -1,0 +1,32 @@
+[Unit]
+Description=Paperless-ngx App
+Requires=paperless-broker.service paperless-db.service
+After=paperless-broker.service paperless-db.service
+
+[Container]
+# Base options
+AutoUpdate=registry
+ContainerName=paperless-app
+Image=ghcr.io/paperless-ngx/paperless-ngx:latest
+Pod=paperless.pod
+Pull=always
+
+# Storage options
+Volume=/var/lib/paperless/consume:/usr/src/paperless/consume:Z
+Volume=/var/lib/paperless/export:/usr/src/paperless/export:Z
+Volume=paperless-data:/usr/src/paperless/data
+Volume=paperless-media:/usr/src/paperless/media
+
+# Environment options
+EnvironmentFile=paperless.env
+
+# Secret options
+Secret=paperless-db-password,type=env,target=PAPERLESS_DBPASS
+Secret=paperless-secret-key,type=env,target=PAPERLESS_SECRET_KEY
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+

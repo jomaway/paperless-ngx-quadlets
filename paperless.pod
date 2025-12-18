@@ -1,0 +1,10 @@
+[Unit]
+Description=Paperless-ngx Pod
+After=network-online.target
+
+[Pod]
+PodName=paperless
+PublishPort=8000:8000
+
+[Install]
+WantedBy=default.target

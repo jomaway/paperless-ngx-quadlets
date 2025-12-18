@@ -1,0 +1,25 @@
+[Unit]
+Description=Paperless-ngx postgres database container
+
+[Container]
+# Base options
+AutoUpdate=registry
+Image=docker.io/library/postgres:18
+Pod=paperless.pod
+Pull=always
+
+# Storage options
+Volume=pgdata:/var/lib/postgressql
+
+# Environment options
+Environment=POSTGRES_DB=paperless POSTGRES_USER=paperless
+
+# Secret options
+Secret=paperless-db-password,type=env,target=POSTGRESS_PASSWORD
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
