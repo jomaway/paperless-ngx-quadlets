@@ -7,7 +7,7 @@ Image=docker.io/library/postgres:18
 Pod=paperless.pod
 
 # Storage options
-Volume=pgdata:/var/lib/postgressql
+Volume=paperless-pgdata:/var/lib/postgressql
 
 # Environment options
 Environment=POSTGRES_DB=paperless POSTGRES_USER=paperless

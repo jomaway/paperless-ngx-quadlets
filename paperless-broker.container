@@ -3,7 +3,6 @@ Description=Paperless-ngx redis broker
 
 [Container]
 # Base options
-AutoUpdate=registry
 Image=docker.io/library/redis:8
 Pod=paperless.pod
 

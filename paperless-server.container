@@ -1,12 +1,10 @@
 [Unit]
-Description=Paperless-ngx App
+Description=Paperless-ngx Server
 Requires=paperless-broker.service paperless-db.service
 After=paperless-broker.service paperless-db.service
 
 [Container]
 # Base options
-AutoUpdate=registry
-ContainerName=paperless-app
 Image=ghcr.io/paperless-ngx/paperless-ngx:latest
 Pod=paperless.pod
 

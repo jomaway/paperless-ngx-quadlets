@@ -40,7 +40,7 @@
     download_files() {
         REPO_BASE_URL="https://raw.githubusercontent.com/jomaway/paperless-ngx-quadlets/refs/heads/main/"
         # List all your files here
-        QUADLET_FILES=("paperless.pod" "paperless-db.container" "paperless-app.container" "paperless-broker.container" "paperless.env")
+        QUADLET_FILES=("paperless.pod" "paperless-db.container" "paperless-server.container" "paperless-broker.container" "paperless.env")
         EXPORT_FILES=("paperless-export.timer" "paperless-export.service")
 
         echo "--- Start downloading files ---"
