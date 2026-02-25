@@ -1,7 +1,7 @@
 [Unit]
 Description=Paperless-ngx Server
-Requires=paperless-broker.service paperless-db.service
-After=paperless-broker.service paperless-db.service
+Requires=paperless-redis.service paperless-database.service
+After=paperless-redis.service paperless-database.service
 
 [Container]
 # Base options
@@ -26,3 +26,4 @@ Restart=always
 
 [Install]
 WantedBy=default.target
+

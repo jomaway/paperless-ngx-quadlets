@@ -1,0 +1,32 @@
+# ~/.config/containers/systemd/tailscale.container
+[Unit]
+Description=Tailscale Sidecar Container
+After=network-online.target
+
+[Container]
+# Base options
+ContainerName=paperless-tailscale-sidecar
+Image=docker.io/tailscale/tailscale:latest
+Pod=paperless.pod
+
+# Storage options
+Volume=/etc/containers/systemd/paperless/config:/config
+Volume=paperless-tailscale-data:/var/lib/tailscale:Z
+
+# Environment options
+Environment=TS_EXTRA_ARGS=--advertise-tags=tag:container
+Environment=TS_SERVE_CONFIG=/config/paperless-serve.json
+Environment=TS_STATE_DIR=/var/lib/tailscale
+Environment=TS_USERSPACE=false
+
+# Secret options
+Secret=ts-authkey,type=env,target=TS_AUTHKEY
+
+# Other options
+AddCapability=NET_ADMIN
+AddCapability=NET_RAW
+AddDevice=/dev/net/tun:/dev/net/tun
+
+[Install]
+WantedBy=default.target
+

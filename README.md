@@ -26,10 +26,11 @@ curl -fsSL https://raw.githubusercontent.com/jomaway/paperless-ngx-quadlets/refs
 
 2. Create two podman secrets:
 
+-  `openssl rand -base64 32 | podman secret create paperless-db-password -`
+- 
 ```bash
-export HISTCONTROL=ignorespace # To hide commands which starts with a space from history
- printf "YOUR_SECURE_PASSWORD" | podman secret create paperless-db-password -
- printf "YOUR_SECURE_PASSWORD" | podman secret create paperless-secret-key -
+openssl rand -base64 32 | podman secret create paperless-db-password -
+openssl rand -base64 32 | podman secret create  paperless-secret-key -
 ```
 
 3. Change environment variables if required. (Optional)
