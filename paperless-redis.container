@@ -10,6 +10,13 @@ Pod=paperless.pod
 # Storage options
 Volume=redisdata:/data
 
+# Healthcheck options
+HealthCmd=redis-cli ping | grep -q PONG || exit 1
+HealthInterval=15s
+HealthRetries=3
+HealthStartPeriod=30s
+HealthTimeout=5s
+
 [Service]
 Restart=always
 

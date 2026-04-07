@@ -16,6 +16,13 @@ Environment=POSTGRES_DB=paperless POSTGRES_USER=paperless
 # Secret options
 Secret=paperless-db-password,type=env,target=POSTGRES_PASSWORD
 
+# Healthcheck options
+HealthCmd=pg_isready -U paperless || exit 1
+HealthInterval=30s
+HealthRetries=5
+HealthStartPeriod=60s
+HealthTimeout=5s
+
 [Service]
 Restart=always
 
