@@ -5,6 +5,7 @@ After=network-online.target
 
 [Container]
 # Base options
+AutoUpdate=registry
 ContainerName=paperless-tailscale-sidecar
 Image=docker.io/tailscale/tailscale:latest
 Pod=paperless.pod

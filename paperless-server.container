@@ -5,6 +5,7 @@ After=paperless-redis.service paperless-database.service
 
 [Container]
 # Base options
+AutoUpdate=registry
 Image=ghcr.io/paperless-ngx/paperless-ngx:latest
 Pod=paperless.pod
 
