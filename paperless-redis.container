@@ -8,7 +8,7 @@ Image=docker.io/library/redis:8
 Pod=paperless.pod
 
 # Storage options
-Volume=redisdata:/data
+Volume=paperless-redis-data:/data
 
 # Healthcheck options
 HealthCmd=redis-cli ping | grep -q PONG || exit 1
@@ -22,4 +22,3 @@ Restart=always
 
 [Install]
 WantedBy=default.target
-
